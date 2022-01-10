@@ -1,5 +1,6 @@
 const nav = document.querySelectorAll(".page-nav a");
-const pagePart = document.querySelectorAll(".main-content [id]");
+const pagePart = document.querySelectorAll("#hero, .main-content [id]");
+pagePart.forEach(e => console.log(e));
 nav.forEach((e, i) => e.addEventListener("click", () => {
   nav.forEach(e => e.classList.remove("active"));
   e.classList.add("active");
