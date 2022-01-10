@@ -30,7 +30,8 @@ a {
   text-decoration: none;
 }
 .hero img, .guides img {
-  width: 98.5vw;
+  width: 100%;
+  object-fit: cover;
 }
 
 
@@ -43,6 +44,7 @@ header {
   justify-content: center;
   position: absolute;
   top: 0;
+  z-index: 10000;
 }
 .header_content {
   width: 91.67%;
@@ -88,6 +90,7 @@ header nav {
   left: 4.165%;
   transform-origin: bottom left;
   transform: rotateZ(90deg);
+  z-index: 10000;
 }
 .social-media_text {
   margin-top: -4%;
@@ -103,7 +106,6 @@ header nav {
 
 
 .page-nav {
-  border: 1px solid red;
   width: 3.9em;
   height: 12rem;
   display: flex;
@@ -113,6 +115,7 @@ header nav {
   top: 30%;
   right: 4.165%;
   font-size: clamp(.7rem, .9vw, 2rem);
+  z-index: 10000;
 }
 .page-nav a {
   width: 100%;
@@ -143,6 +146,44 @@ header nav {
 
 
 
+.hero {
+  height: 165%;
+  position: relative;
+  overflow: hidden;
+}
+.bg-layer-1, .bg-layer-2, 
+.bg-layer-3, .bg-layer-4 {
+  position: absolute;
+  width: 100%;
+}
+.bg-layer-1 {
+  height: 121%;
+}
+.bg-layer-2 {
+  height: 100%;
+  background: linear-gradient(145deg, #0B1D26ee, #0B1D2600);
+}
+.bg-layer-3 {
+  height: 118.5%;
+  top: 27%;
+}
+.bg-layer-4 {
+  height: 77.17%;
+  top: 45%;
+}
+
+
+
+
+.main-content {
+  border: 1px solid red;
+}
+.guide {
+  width: 100%;
+  display: flex;
+}
+.guide_description
+.guide_image
 
 
 
