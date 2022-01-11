@@ -24,7 +24,7 @@ body {
 }
 #app {
   width: 100%;
-  min-width: 800px;
+  min-width: 1150px;
   height: 100%;
 }
 .hero img, .guides img {
@@ -297,7 +297,7 @@ header nav {
 .hero_description {
   max-height: 14rem;
   position: absolute;
-  inset: 15.5% 25% 65%;
+  inset: min(24vh, 15.5%) 25% 65%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -307,6 +307,7 @@ header nav {
 .hero_description h1 {
   font-family: initial;
   font-size: 4em;
+  font-size: min(9vh, 4em);
   text-transform: capitalize;
 }
 .hero_post-text {
@@ -320,6 +321,9 @@ header nav {
 .scroll-icon {
   width: .8em;
   margin-top: -.2em;
+}
+.scroll-icon svg {
+  width: 100%;
 }
 
 
@@ -403,10 +407,10 @@ header nav {
 }
 .more_icon {
   width: .9em;
-  margin-top: -.25em;
+  margin-top: -.035em;
   transition: all 200ms ease-in-out;
 }
-.more_icon img {
+.more_icon svg {
   width: 100%;
 }
 .more:hover .more_text,
@@ -440,7 +444,7 @@ header nav {
 
 
 footer {
-  height: 41.5%;
+  height: max(41.5%, 18rem);
   font-size: .8rem;
   padding-bottom: 4rem;
 }

@@ -1,17 +1,13 @@
+// Code to Navigate page by clicking on the side navbar
 const nav = document.querySelectorAll(".page-nav a");
 const pagePart = document.querySelectorAll("#hero, .main-content [id]");
-nav.forEach((e, i) => window.addEventListener("keydown", (key) => {
-  if (key.key == i) {
-    nav.forEach(e => e.classList.remove("active"));
-    e.classList.add("active");
-    pagePart[i].scrollIntoView();
-  }
-}));
 nav.forEach((e, i) => e.addEventListener("click", () => {
   nav.forEach(e => e.classList.remove("active"));
   e.classList.add("active");
   pagePart[i].scrollIntoView();
 }));
+
+// Code to update 'active' class on the side navbar when the page loads or is scrolled
 ["load", "scroll"].forEach(event => {
   document.addEventListener(event, () => {
     pagePart.forEach((e, i) => {
@@ -23,6 +19,16 @@ nav.forEach((e, i) => e.addEventListener("click", () => {
   });
 });
 
+// Code to Navigate page by clicking on the number of the section of page
+nav.forEach((e, i) => window.addEventListener("keydown", (key) => {
+  if (key.key == i) {
+    nav.forEach(e => e.classList.remove("active"));
+    e.classList.add("active");
+    pagePart[i].scrollIntoView();
+  }
+}));
+
+// Function to check whether a section is more than halfway in the viewport
 function isVisible (ele) {
   const { top, bottom } = ele.getBoundingClientRect();
   const vHeight = (window.innerHeight || document.documentElement.clientHeight);
@@ -50,6 +56,7 @@ window.addEventListener("scroll", () => {
     header.style.top = 0;
   }
   heroBG1.style.top = `-${value / 3}px`;
+  heroBG4.style.top = `${value / 8}px`;
   heroBG4.style.left = `-${value / 5.5}px`;
   heroText.style.transform = `translateY(${value / 1.5}px)`;
 });
