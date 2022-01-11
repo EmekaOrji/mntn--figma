@@ -27,10 +27,18 @@ body {
   min-width: 800px;
   height: 100%;
 }
+.hero img, .guides img {
+  width: 100%;
+  object-fit: cover;
+}
 a {
   display: block;
   color: inherit;
   text-decoration: none;
+}
+a:focus {
+  outline: none;
+  border: none;
 }
 .nav_link,
 .footer_link {
@@ -50,7 +58,9 @@ a {
   transition: all 200ms ease-in-out;
 }
 .nav_link:hover::before,
-.footer_link:hover::before {
+.nav_link:focus::before,
+.footer_link:hover::before,
+.footer_link:focus::before {
   width: 100%;
   background: var(--accent);
 }
@@ -67,6 +77,7 @@ header {
   top: 0;
   z-index: 10000;
   user-select: none;
+  transition: top 200ms linear;
 }
 .header_content {
   width: 91.67%;
@@ -87,7 +98,8 @@ header nav {
   font-size: clamp(.7rem, .9vw, 2rem);
   font-weight: 500;
 }
-.nav_link:hover {
+.nav_link:hover,
+.nav_link:focus {
   color: var(--accent);
 }
 .account {
@@ -105,10 +117,12 @@ header nav {
   display: flex;
   justify-content: center;
 }
-.account:hover .account_text {
+.account:hover .account_text,
+.account:focus .account_text {
   color: var(--accent);
 }
-.account:hover .account_icon svg path {
+.account:hover .account_icon svg path,
+.account:focus .account_icon svg path {
   fill: var(--accent);
 }
 .account_text::before {
@@ -120,7 +134,8 @@ header nav {
   background: #fff;
   transition: all 200ms ease-in-out;
 }
-.account:hover .account_text::before {
+.account:hover .account_text::before,
+.account:focus .account_text::before {
   width: 100%;
   background: var(--accent);
 }
@@ -130,6 +145,7 @@ header nav {
 
 .social-media {
   width: min(11%, 7.7rem);
+  min-width: 7rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -154,11 +170,13 @@ header nav {
   transform: rotateZ(-90deg);
   width: clamp(.7rem + 6px, 1vw, 2rem);
 }
-.social-media_icon:hover {
+.social-media_icon:hover,
+.social-media_icon:focus {
   transform-origin: 50% 50%;
   transform: scale(1.15);
 }
-.social-media_icon:hover svg path {
+.social-media_icon:hover svg path,
+.social-media_icon:focus svg path {
   fill: var(--accent);
 }
 
@@ -186,7 +204,8 @@ header nav {
   justify-content: space-between;
   cursor: pointer;
 }
-.page-nav a:hover {
+.page-nav a:hover,
+.page-nav a:focus {
   background: linear-gradient(to right, transparent, #0B1D2611);
 }
 .page-nav .page-nav_text {
@@ -211,11 +230,13 @@ header nav {
   background: #fff;
   border-radius: 3em;
 }
-.page-nav :not(.active):hover .page-nav_text {
+.page-nav :not(.active):hover .page-nav_text,
+.page-nav :not(.active):focus .page-nav_text {
   color: #fffc;
   font-weight: 500;
 }
-.page-nav :not(.active):hover .page-nav_slide {
+.page-nav :not(.active):hover .page-nav_slide,
+.page-nav :not(.active):focus .page-nav_slide {
   background: #fffc;
 }
 
@@ -237,11 +258,24 @@ header nav {
   margin-bottom: -14%;
   background: red;
   background: linear-gradient(to bottom, var(--main-color-00) 0%, var(--main-color) 70%);
+  z-index: 3;
 }
 .bg-layer-1, .bg-layer-2, 
 .bg-layer-3, .bg-layer-4 {
   position: absolute;
   width: 100%;
+  pointer-events: none;
+  transition: all 200ms linear;
+  overflow: hidden;
+}
+.hero div > img {
+  /* width: 100%;
+  height: 100%; */
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  transition: all 200ms linear;
 }
 .bg-layer-1 {
   height: 121%;
@@ -253,18 +287,22 @@ header nav {
 .bg-layer-3 {
   height: 118.5%;
   top: 27%;
+  z-index: 1;
 }
 .bg-layer-4 {
   height: 77.17%;
   top: 45%;
+  z-index: 2;
 }
 .hero_description {
+  max-height: 14rem;
   position: absolute;
   inset: 15.5% 25% 65%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   user-select: text;
+  transition: all 200ms linear;
 }
 .hero_description h1 {
   font-family: initial;
@@ -301,6 +339,7 @@ header nav {
   justify-content: space-between;
   position: relative;
   margin-bottom: 7em;
+  z-index: 10;
 }
 .guide:nth-of-type(2n) .guide_description {
   order: 2;
@@ -370,10 +409,12 @@ header nav {
 .more_icon img {
   width: 100%;
 }
-.more:hover .more_text {
+.more:hover .more_text,
+.more:focus .more_text {
   margin-left: .5em;
 }
-.more:hover .more_icon {
+.more:hover .more_icon,
+.more:focus .more_icon {
   transform: rotate(360deg);
   animation: arrow-active 300ms ease-in-out alternate infinite;
 }
@@ -382,7 +423,7 @@ header nav {
     margin-left: 0;
   }
   to {
-    margin-left: .4em;
+    margin-left: .25em;
   }
 }
 .guide_image {
@@ -461,7 +502,8 @@ footer {
 .footer_link::before {
   bottom: -4%;
 }
-.footer_link:hover {
+.footer_link:hover,
+.footer_link:focus {
   text-decoration: .5px solid underline;
 }
 
